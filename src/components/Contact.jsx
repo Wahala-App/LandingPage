@@ -72,7 +72,6 @@ const Contact = () => {
                                 backgroundPosition: 'center', // This centers the focus
                                 backgroundRepeat: 'no-repeat',
                                 marginBottom: '1.5rem',
-                                border: '4px solid rgba(255,255,255,0.1)',
                                 boxShadow: '0 0 20px rgba(0,0,0,0.2)'
                             }}></div>
 
@@ -80,13 +79,13 @@ const Contact = () => {
                             <p style={{ color: 'var(--primary)', fontWeight: 600, marginBottom: '1.5rem' }}>{profile.role}</p>
 
                             <div style={{ display: 'flex', gap: '1rem', marginTop: 'auto' }}>
-                                <button className="btn-icon" style={{ background: 'var(--glass-border)', border: 'none', color: 'white', padding: '10px', borderRadius: '50%', cursor: 'pointer' }}>
+                                <button className="btn-icon" style={{ background: 'var(--glass-border)', border: 'none', color: 'var(--text-primary)', padding: '10px', borderRadius: '50%', cursor: 'pointer' }}>
                                     <Mail size={18} />
                                 </button>
-                                <button className="btn-icon" style={{ background: 'var(--glass-border)', border: 'none', color: 'white', padding: '10px', borderRadius: '50%', cursor: 'pointer' }}>
+                                <button className="btn-icon" style={{ background: 'var(--glass-border)', border: 'none', color: 'var(--text-primary)', padding: '10px', borderRadius: '50%', cursor: 'pointer' }}>
                                     <Linkedin size={18} />
                                 </button>
-                                <button className="btn-icon" style={{ background: 'var(--glass-border)', border: 'none', color: 'white', padding: '10px', borderRadius: '50%', cursor: 'pointer' }}>
+                                <button className="btn-icon" style={{ background: 'var(--glass-border)', border: 'none', color: 'var(--text-primary)', padding: '10px', borderRadius: '50%', cursor: 'pointer' }}>
                                     <Twitter size={18} />
                                 </button>
                             </div>

@@ -1,18 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap');
 
-:root {
+:other-root {
     --bg-color: #050511;
     --bg-color-secondary: #0f0f24;
     --text-primary: #ffffff;
     --text-secondary: #a1a1aa;
 
-    /* Vibrant Palette */
-    --primary: #6366f1;
-    /* Indigo 500 */
-    --secondary: #ec4899;
-    /* Pink 500 */
+    --primary: #fed501;
+    --secondary: #1e293b;
     --accent: #06b6d4;
-    /* Cyan 500 */
+    
+
+    --glass-bg: rgba(255, 255, 255, 0.03);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shine: rgba(255, 255, 255, 0.1);
+}
+
+:root {
+    --bg-color: #f8fafc;
+    --bg-color-secondary: #ffffff;
+    --text-primary: #334155;
+    --text-secondary: #a1a1aa;
+
+    --primary: #fed501;
+    --secondary: #404040;
+    --accent: #d4af37;
+    
 
     --glass-bg: rgba(255, 255, 255, 0.03);
     --glass-border: rgba(255, 255, 255, 0.08);
@@ -47,7 +60,7 @@ body {
 }
 
 .gradient-text {
-    background: linear-gradient(135deg, var(--accent), var(--primary), var(--secondary));
+    background: linear-gradient(135deg, var(--primary), var(--accent), var(--secondary));
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
@@ -65,10 +78,10 @@ body {
 
 /* Navbar */
 .glass-navbar {
-    background: rgba(5, 5, 17, 0.7);
+    background: rgba(220, 220, 220, 0.8);
     backdrop-filter: blur(15px);
     -webkit-backdrop-filter: blur(15px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .nav-link {
@@ -98,6 +111,20 @@ body {
     width: 100%;
 }
 
+@media (max-width: 768px) {
+    .glass-navbar {
+        padding: 1rem 2rem !important;
+    }
+
+    .nav-links {
+        display: none !important;
+    }
+    
+    .logo {
+        font-size: 1.5rem !important;
+    }
+}
+
 /* Buttons */
 .btn {
     padding: 12px 32px;
@@ -112,12 +139,12 @@ body {
 .btn-primary {
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     color: white;
-    box-shadow: 0 0 20px rgba(99, 102, 241, 0.4);
+    box-shadow: 0 0 20px rgba(64, 64, 64, 0.4);
 }
 
 .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 0 30px rgba(99, 102, 241, 0.6);
+    box-shadow: 0 0 30px rgba(64, 64, 64, 0.6);
     filter: brightness(1.1);
 }
 
@@ -144,7 +171,7 @@ body {
 .circle-2 {
     width: 500px;
     height: 500px;
-    background: radial-gradient(circle, var(--secondary), transparent 70%);
+    background: radial-gradient(circle, var(--accent), transparent 70%);
     bottom: 0;
     right: -100px;
     animation-delay: 5s;

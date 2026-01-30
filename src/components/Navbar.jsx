@@ -27,12 +27,14 @@ const Navbar = () => {
                 padding: '1.2rem 4rem',
             }}
         >
-            <div className="logo" style={{ fontSize: '2rem', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}>
-                <div style={{ width: '12px', height: '12px', background: 'var(--accent)', borderRadius: '50%', boxShadow: '0 0 10px var(--accent)' }}></div>
+            <div className="logo" style={{ fontSize: '2rem', fontWeight: 800, cursor: 'pointer', display: 'flex', alignItems: 'center', gap: '10px' }}
+                onClick={(e) => {e.preventDefault(); scrollToSection("hero")}}>
+                <img src="/wahala.svg" alt="Wahala" style={{ width: '32px', height: '32px' }} />
+                {/* <div style={{ width: '12px', height: '12px', background: 'var(--accent)', borderRadius: '50%', boxShadow: '0 0 10px var(--accent)' }}></div> */}
                 <span className="gradient-text">Wahala</span>
             </div>
 
-            <ul style={{ display: 'flex', gap: '3rem', listStyle: 'none' }}>
+            <ul className="nav-links" style={{ display: 'flex', gap: '3rem', listStyle: 'none' }}>
                 {['Home', 'Contact', 'Features'].map((item) => (
                     <li key={item}>
                         <a
