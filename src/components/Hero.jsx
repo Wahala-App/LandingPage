@@ -31,7 +31,7 @@ const Hero = () => {
                     </h1>
 
                     <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 3rem' }}>
-                        Experience a new dimension of connectivity. Instant incident reporting and event notification
+                        Instant incident reporting and event notification. Making our communities safer one report at a time
                     </p>
 
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>

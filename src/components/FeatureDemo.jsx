@@ -27,7 +27,7 @@ const FeatureDemo = () => {
                     style={{
                         width: '100%',
                         maxWidth: '1000px',
-                        height: '600px',
+                        height: 'fit-content',
                         margin: '0 auto',
                         position: 'relative',
                         border: '1px solid rgba(255,255,255,0.1)',
@@ -61,12 +61,12 @@ const FeatureDemo = () => {
 
                     {/* Main Content */}
                     <div style={{ padding: '3rem', position: 'relative' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'end', marginBottom: '3rem' }}>
-                            <div>
+                        <div style={{ display: 'flex', flexDirection:"column", justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
+                            <div style={{ alignSelf: 'flex-start', padding: "1rem 0" }}>
                                 <h3 style={{ fontSize: '2rem' }}>System Status</h3>
                                 <p style={{ opacity: 0.6 }}>Live metrics from Sector 7</p>
                             </div>
-                            <div className="btn-primary" style={{ padding: '8px 20px', fontSize: '0.9rem', borderRadius: '8px' }}>Export Report</div>
+                            <div className="btn-primary" style={{ padding: '8px 20px', fontSize: '0.9rem', borderRadius: '8px', justifyContent: "flex-end", maxWidth: "fit-content" }}>Export Report</div>
                         </div>
 
                         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
