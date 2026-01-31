@@ -32,7 +32,7 @@ const profiles = [
 
 const Contact = () => {
     return (
-        <section id="contact" style={{ padding: '100px 20px', position: 'relative' }}>
+        <section id="contact" style={{ minHeight: '80vh', padding: '100px 20px', position: 'relative' }}>
             <div className="container">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
@@ -68,8 +68,8 @@ const Contact = () => {
                                 height: '120px',
                                 borderRadius: '50%',
                                 backgroundImage: profile.idPhotoLink ? `url(${profile.idPhotoLink})` : profile.gradient,
-                                backgroundSize: 'cover',   // This ensures the image fills the circle
-                                backgroundPosition: 'center', // This centers the focus
+                                backgroundSize: 'cover', 
+                                backgroundPosition: 'center',
                                 backgroundRepeat: 'no-repeat',
                                 marginBottom: '1.5rem',
                                 boxShadow: '0 0 20px rgba(0,0,0,0.2)'
