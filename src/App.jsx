@@ -3,6 +3,9 @@ import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Contact from './components/Contact';
 import FeatureDemo from './components/FeatureDemo';
+import Info from './components/Info';
+import Waitlist from './components/Waitlist';
+import Pricing from './components/Pricing';
 
 function App() {
     return (
@@ -12,6 +15,9 @@ function App() {
                 <Hero />
                 <Contact />
                 <FeatureDemo />
+                <Info />
+                <Pricing />
+                <Waitlist />
             </main>
             <footer style={{
                 textAlign: 'center',

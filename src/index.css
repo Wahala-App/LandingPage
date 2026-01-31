@@ -53,7 +53,7 @@ body {
 
 /* Utilities */
 .container {
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0 2rem;
     width: 100%;
@@ -139,6 +139,11 @@ body {
 .btn-primary {
     background: linear-gradient(90deg, var(--primary), var(--secondary));
     color: white;
+    box-shadow: 0 0 20px rgba(64, 64, 64, 0.4);
+}
+
+.btn-disabled {
+    color: var(--text-secondary);
     box-shadow: 0 0 20px rgba(64, 64, 64, 0.4);
 }
 
