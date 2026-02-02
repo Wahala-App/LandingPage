@@ -10,7 +10,7 @@ const FeatureDemo = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setStep((prev) => (prev + 1) % 5);
-        }, 3000); // 3 second intervals for each phase
+        }, 2500); // 3 second intervals for each phase
         return () => clearInterval(interval);
     }, []);
 

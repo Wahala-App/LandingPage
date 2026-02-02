@@ -36,11 +36,11 @@ const Info = () => {
         }
     ];
 
-    // Cycle the center icon + label every 5 seconds: Secure -> Fast -> Reliable
+    // Cycle the center icon + label every 3 seconds: Secure -> Fast -> Reliable
     const [displayIndex, setDisplayIndex] = useState(0);
 
     useEffect(() => {
-        const id = setInterval(() => setDisplayIndex(i => (i + 1) % 3), 5000);
+        const id = setInterval(() => setDisplayIndex(i => (i + 1) % 3), 2500);
         return () => clearInterval(id);
     }, []);
 
