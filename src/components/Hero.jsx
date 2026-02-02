@@ -30,12 +30,25 @@ const Hero = () => {
                         Disrupt the <br /> <span className="gradient-text">Status Quo</span>
                     </h1>
 
+                    <p style={{ fontSize: '1.5rem', fontWeight: 500, color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 1rem' }}>
+                        Instant incident reporting and event notification.
+                    </p>
                     <p style={{ fontSize: '1.25rem', color: 'var(--text-secondary)', maxWidth: '600px', margin: '0 auto 3rem' }}>
-                        Instant incident reporting and event notification. Making our communities safer one report at a time
+                        Making our communities safer one report at a time
                     </p>
 
                     <div style={{ display: 'flex', gap: '1.5rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-                        <button className="btn btn-primary">Get Started</button>
+                        <button
+                            className="btn btn-primary"
+                            onClick={(e) => {
+                                e.preventDefault();
+                                const el = document.getElementById('waitlist');
+                                if (el) el.scrollIntoView({ behavior: 'smooth' });
+                            }}
+                            aria-label="Go to waitlist"
+                        >
+                            Get Started
+                        </button>
                     </div>
                 </motion.div>
             </div>

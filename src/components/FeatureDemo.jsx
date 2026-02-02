@@ -1,101 +1,180 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-import { Activity, BarChart2, Globe, Shield } from 'lucide-react';
+import { MapPin, Users, CheckCircle, Smartphone, AlertTriangle, Wifi } from 'lucide-react';
 
 const FeatureDemo = () => {
+    // Animation state
+    const [step, setStep] = useState(0);
+
+    // Sequence controller
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setStep((prev) => (prev + 1) % 5);
+        }, 3000); // 3 second intervals for each phase
+        return () => clearInterval(interval);
+    }, []);
+
+    // Derived states for UI
+    const isIncident = step >= 1;
+    const isBroadcasting = step >= 2;
+    const isCorroborating = step >= 3;
+    const isVerified = step >= 4;
+
     return (
-        <section id="features" style={{ padding: '100px 20px', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
+        <section id="features" style={{ padding: '100px 0', position: 'relative', minHeight: '100vh', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
             <div className="container">
-                <motion.div
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    style={{ textAlign: 'center', marginBottom: '5rem' }}
-                >
-                    <span style={{ color: 'var(--secondary)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase' }}>Future Release</span>
-                    <h2 style={{ fontSize: '3rem', fontWeight: 800, marginTop: '1rem' }}>The <span className="gradient-text"> Wahala Dashboard</span></h2>
-                </motion.div>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '4rem', alignItems: 'center' }}>
 
-                {/* Dashboard Mockup */}
-                <motion.div
-                    initial={{ opacity: 0, scale: 0.95 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.8 }}
-                    className="glass-panel"
-                    style={{
-                        width: '100%',
-                        maxWidth: '1000px',
-                        height: 'fit-content',
-                        margin: '0 auto',
-                        position: 'relative',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        boxShadow: '0 0 50px rgba(99, 102, 241, 0.1)',
-                        display: 'grid',
-                        gridTemplateColumns: '250px 1fr',
-                        overflow: 'hidden'
-                    }}
-                >
-                    {/* Sidebar */}
-                    <div style={{ borderRight: '1px solid rgba(255,255,255,0.05)', padding: '2rem', display: 'flex', flexDirection: 'column', gap: '2rem' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '10px', opacity: 0.8 }}>
-                            <div style={{ width: '10px', height: '10px', borderRadius: '50%', background: 'var(--secondary)' }}></div>
-                            <span style={{ fontWeight: 600 }}>Nova OS</span>
-                        </div>
-                        <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem', marginTop: '1rem' }}>
-                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', color: 'var(--primary)', background: 'rgba(99,102,241,0.1)', padding: '10px', borderRadius: '10px' }}>
-                                <Activity size={18} /> <span>Overview</span>
-                            </div>
-                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', opacity: 0.6 }}>
-                                <BarChart2 size={18} /> <span>Analytics</span>
-                            </div>
-                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', opacity: 0.6 }}>
-                                <Globe size={18} /> <span>Network</span>
-                            </div>
-                            <div style={{ display: 'flex', gap: '10px', alignItems: 'center', opacity: 0.6 }}>
-                                <Shield size={18} /> <span>Security</span>
-                            </div>
-                        </div>
-                    </div>
+                    {/* Text Content */}
+                    <motion.div
+                        initial={{ opacity: 0, x: -30 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                    >
+                        <span style={{ color: 'var(--primary)', fontWeight: 600, letterSpacing: '2px', textTransform: 'uppercase', marginBottom: '1rem', display: 'block' }}>
+                            Crowd-Sourced Trust
+                        </span>
+                        <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1.5rem', lineHeight: 1.1 }}>
+                            Trust, but <br /> <span className="gradient-text">Verify.</span>
+                        </h2>
+                        <p style={{ color: 'var(--text-secondary)', fontSize: '1.1rem', marginBottom: '2rem', lineHeight: '1.8' }}>
+                            Wahala uses a consensus protocol. When an incident is reported, nearby users are instantly pinged to corroborate.
+                            <br /><br />
+                            1. <strong>Report</strong>: A user drops a pin.
+                            <br />
+                            2. <strong>Broadcast</strong>: Alerts nearby users
+                            <br />
+                            3. <strong>Verify</strong>: Neighbors confirm with a tap.
+                        </p>
+                    </motion.div>
 
-                    {/* Main Content */}
-                    <div style={{ padding: '3rem', position: 'relative' }}>
-                        <div style={{ display: 'flex', flexDirection:"column", justifyContent: 'space-between', alignItems: 'flex-end', marginBottom: '3rem' }}>
-                            <div style={{ alignSelf: 'flex-start', padding: "1rem 0" }}>
-                                <h3 style={{ fontSize: '2rem' }}>System Status</h3>
-                                <p style={{ opacity: 0.6 }}>Live metrics from Sector 7</p>
-                            </div>
-                            <div className="btn-primary" style={{ padding: '8px 20px', fontSize: '0.9rem', borderRadius: '8px', justifyContent: "flex-end", maxWidth: "fit-content" }}>Export Report</div>
-                        </div>
+                    {/* Interactive Demo */}
+                    <motion.div
+                        className="glass-panel"
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        style={{
+                            height: '500px',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            background: 'radial-gradient(circle at center, rgba(30, 41, 59, 0.5) 0%, rgba(5, 5, 17, 0.8) 100%)',
+                            border: '1px solid rgba(255,255,255,0.1)'
+                        }}
+                    >
+                        {/* Map Grid Background */}
+                        <div style={{
+                            position: 'absolute', inset: 0,
+                            backgroundImage: 'linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px)',
+                            backgroundSize: '40px 40px',
+                            opacity: 0.5
+                        }}></div>
 
-                        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '2rem' }}>
-                            <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '15px' }}>
-                                <p style={{ opacity: 0.7, marginBottom: '0.5rem' }}>CPU Usage</p>
-                                <div style={{ fontSize: '2.5rem', fontWeight: 700 }}>42%</div>
-                                <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.1)', marginTop: '1rem', borderRadius: '2px' }}>
-                                    <div style={{ height: '100%', width: '42%', background: 'var(--accent)' }}></div>
-                                </div>
-                            </div>
-                            <div style={{ background: 'rgba(0,0,0,0.2)', padding: '1.5rem', borderRadius: '15px' }}>
-                                <p style={{ opacity: 0.7, marginBottom: '0.5rem' }}>Active Nodes</p>
-                                <div style={{ fontSize: '2.5rem', fontWeight: 700 }}>1,024</div>
-                                <div style={{ height: '4px', width: '100%', background: 'rgba(255,255,255,0.1)', marginTop: '1rem', borderRadius: '2px' }}>
-                                    <div style={{ height: '100%', width: '85%', background: 'var(--secondary)' }}></div>
-                                </div>
-                            </div>
+                        {/* Status Float */}
+                        <div style={{ position: 'absolute', top: '20px', left: '20px', right: '20px', zIndex: 10, display: 'flex', justifyContent: 'center' }}>
+                            <motion.div
+                                animate={{
+                                    backgroundColor: isVerified ? 'rgba(6, 182, 212, 0.2)' : 'rgba(254, 213, 1, 0.1)',
+                                    borderColor: isVerified ? 'var(--accent)' : 'var(--primary)'
+                                }}
+                                style={{
+                                    padding: '10px 20px',
+                                    borderRadius: '30px',
+                                    border: '1px solid',
+                                    backdropFilter: 'blur(10px)',
+                                    display: 'flex', alignItems: 'center', gap: '10px'
+                                }}
+                            >
+                                {isVerified ? <CheckCircle size={18} color="var(--accent)" /> : <AlertTriangle size={18} color="var(--primary)" />}
+                                <span style={{ fontWeight: 600, fontSize: '0.9rem', color: 'white' }}>
+                                    {isVerified ? "INCIDENT VERIFIED" : isIncident ? "VERIFICATION IN PROGRESS..." : "MONITORING ACTIVE"}
+                                </span>
+                            </motion.div>
                         </div>
 
-                        {/* Fake Chart */}
-                        <div style={{ marginTop: '2rem', height: '200px', background: 'rgba(0,0,0,0.2)', borderRadius: '15px', display: 'flex', alignItems: 'flex-end', padding: '20px', gap: '10px' }}>
-                            {[40, 60, 45, 70, 50, 80, 65, 90, 75, 55].map((h, i) => (
-                                <div key={i} style={{ flex: 1, height: `${h}%`, background: `linear-gradient(to top, var(--primary), transparent)`, borderRadius: '4px 4px 0 0', opacity: 0.6 }}></div>
-                            ))}
+                        {/* Central Incident Node */}
+                        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%, -50%)', zIndex: 5 }}>
+                            {/* Pulse Effect */}
+                            {isBroadcasting && (
+                                <motion.div
+                                    initial={{ width: 0, height: 0, opacity: 0.8 }}
+                                    animate={{ width: 400, height: 400, opacity: 0 }}
+                                    transition={{ duration: 2, repeat: Infinity }}
+                                    style={{
+                                        position: 'absolute', top: '50%', left: '50%', x: '-50%', y: '-50%',
+                                        borderRadius: '50%', border: '2px solid var(--primary)'
+                                    }}
+                                />
+                            )}
+
+                            {/* Pin */}
+                            <motion.div
+                                initial={{ y: -50, opacity: 0 }}
+                                animate={{ y: isIncident ? 0 : -50, opacity: isIncident ? 1 : 0 }}
+                                style={{ color: isVerified ? 'var(--accent)' : 'var(--primary)', filter: 'drop-shadow(0 0 10px rgba(0,0,0,0.5))' }}
+                            >
+                                <MapPin size={48} fill={isVerified ? "var(--accent)" : "var(--primary)"} color="#000" />
+                            </motion.div>
                         </div>
-                    </div>
-                </motion.div>
+
+                        {/* Surrounding Users - 6 users */}
+                        <div style={{ position: 'absolute', inset: 0, zIndex: 4 }}>
+                            {/* Top Left Cluster */}
+                            <UserNode x="-80px" y="-60px" delay={0.2} active={isCorroborating} complete={isVerified} />
+                            <UserNode x="-120px" y="-20px" delay={0.3} active={isCorroborating} complete={isVerified} />
+
+                            {/* Top Right Cluster */}
+                            <UserNode x="90px" y="-40px" delay={0.4} active={isCorroborating} complete={isVerified} />
+                            <UserNode x="130px" y="10px" delay={0.5} active={isCorroborating} complete={isVerified} />
+
+                            {/* Bottom Cluster */}
+                            <UserNode x="-20px" y="80px" delay={0.6} active={isCorroborating} complete={isVerified} />
+                            <UserNode x="60px" y="90px" delay={0.7} active={isCorroborating} complete={isVerified} />
+                        </div>
+
+                    </motion.div>
+                </div>
             </div>
         </section>
+    );
+};
+
+// Sub-component for User Nodes
+const UserNode = ({ x, y, delay, active, complete }) => {
+    return (
+        <div style={{ position: 'absolute', top: '50%', left: '50%', transform: `translate(calc(-50% + ${x}), calc(-50% + ${y}))` }}>
+            {/* Connection Line */}
+            {active && (
+                <svg style={{ position: 'absolute', overflow: 'visible', left: '50%', top: '50%', width: '0', height: '0', pointerEvents: 'none' }}>
+                    <motion.line
+                        x1="0" y1="0" x2={parseInt(x) * -1 + "px"} y2={parseInt(y) * -1 + "px"}
+                        stroke={complete ? "var(--accent)" : "rgba(255,255,255,0.2)"}
+                        strokeWidth="2"
+                        strokeDasharray="5 5"
+                        initial={{ pathLength: 0 }}
+                        animate={{ pathLength: 1 }}
+                        transition={{ duration: 0.5 }}
+                    />
+                </svg>
+            )}
+
+            <motion.div
+                initial={{ scale: 0 }}
+                animate={{ scale: active ? 1 : 0.5, opacity: active ? 1 : 0.3 }}
+                transition={{ delay }}
+                style={{
+                    background: complete ? 'var(--accent)' : 'rgba(255,255,255,0.1)',
+                    width: '36px', height: '36px', borderRadius: '50%',
+                    display: 'flex', alignItems: 'center', justifyContent: 'center',
+                    boxShadow: active ? '0 0 15px rgba(0,0,0,0.3)' : 'none',
+                    border: active ? '1px solid rgba(255,255,255,0.2)' : 'none'
+                }}
+            >
+                {complete ? <Wifi size={18} color="#000" /> : <Smartphone size={18} color="white" />}
+            </motion.div>
+        </div>
     );
 };
 

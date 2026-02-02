@@ -103,7 +103,7 @@ const Waitlist = () => {
                             <CheckCircle size={24} style= {{margin: "0rem 1rem"}} color="var(--accent)" />
                             You will be notified when Wahala goes live !
                         </div>}
-                    <button type="submit" disabled={isSent} className= {isSent ? "btn btn-disabled" :"btn btn-primary"} style={{ alignSelf: 'center', maxWidth: 'fit-content', border: isSent ? '': '0.1rem solid var(--accent)'}}>Get Started</button>
+                    <button type="submit" disabled={isSent} className= {isSent ? "btn btn-disabled" :"btn btn-primary"} style={{ alignSelf: 'center', maxWidth: 'fit-content', border: isSent ? '': '0.1rem solid var(--accent)'}}>Join Us</button>
                 </div>
             </form>
         </section>

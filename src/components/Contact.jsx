@@ -41,7 +41,7 @@ const Contact = () => {
                     transition={{ duration: 0.8 }}
                     style={{ textAlign: 'center', marginBottom: '4rem' }}
                 >
-                    <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1rem' }}>The <span className="gradient-text">Squad</span></h2>
+                    <h2 style={{ fontSize: '3rem', fontWeight: 800, marginBottom: '1rem' }}>The <span className="gradient-text"> Wahala Squad</span></h2>
                     <p style={{ color: 'var(--text-secondary)', fontSize: '1.2rem' }}>Meet the minds behind the madness.</p>
                 </motion.div>
 
