@@ -2,12 +2,13 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Twitter } from 'lucide-react';
 import tunjiImg from '../assets/tunji.jpeg';
+import kosiImg from '../assets/kosi.jpeg'
 
 const profiles = [
     {
         id: 1,
         name: "Ose",
-        role: "Chief Visionary",
+        role: "Chief Executive Officer",
         contact: "elena@wahala.app",
         idPhotoLink: undefined,
         gradient: "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)"
@@ -15,15 +16,15 @@ const profiles = [
     {
         id: 2,
         name: "Kosi",
-        role: "Mobile Dev",
+        role: "Chief Operations Officer",
         contact: "turbo@wahala.app",
-        idPhotoLink: undefined,
+        idPhotoLink: kosiImg,
         gradient: "linear-gradient(120deg, #a1c4fd 0%, #c2e9fb 100%)"
     },
     {
         id: 3,
         name: "Tunji",
-        role: "Creative Director",
+        role: "Chief Technical Officer",
         contact: "tunjiadewoye1@gmail.com",
         idPhotoLink: tunjiImg,
         gradient: "linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%)"
