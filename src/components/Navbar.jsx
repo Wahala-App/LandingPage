@@ -35,7 +35,7 @@ const Navbar = () => {
             </div>
 
             <ul className="nav-links" style={{ display: 'flex', gap: '3rem', listStyle: 'none' }}>
-                {['Home', 'Contact', 'Features', 'Info', 'Pricing', 'Waitlist'].map((item) => (
+                {['Home', 'Info', 'Features', 'Contact', 'Waitlist'].map((item) => ( //Add Pricing back at some point
                     <li key={item}>
                         <a
                             href={`#${item.toLowerCase()}`}

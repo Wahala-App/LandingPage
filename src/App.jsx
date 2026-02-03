@@ -13,10 +13,10 @@ function App() {
             <Navbar />
             <main>
                 <Hero />
-                <Contact />
-                <FeatureDemo />
                 <Info />
-                <Pricing />
+                <FeatureDemo />
+                {/* <Pricing /> */}
+                <Contact />
                 <Waitlist />
             </main>
             <footer style={{
