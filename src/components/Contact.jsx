@@ -2,7 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Linkedin, Twitter } from 'lucide-react';
 import tunjiImg from '../assets/tunji.jpeg';
-import kosiImg from '../assets/kosi.jpeg'
+import kosiImg from '../assets/kosi.jpeg';
+import oseImg from '../assets/ose.jpg';
 
 const profiles = [
     {
@@ -10,7 +11,7 @@ const profiles = [
         name: "Ose",
         role: "Chief Executive Officer",
         contact: "elena@wahala.app",
-        idPhotoLink: undefined,
+        idPhotoLink: oseImg,
         gradient: "linear-gradient(45deg, #ff9a9e 0%, #fad0c4 99%, #fad0c4 100%)"
     },
     {
